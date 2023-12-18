@@ -1,10 +1,8 @@
-<script setup>
-import AppBar from "./components/AppBar.vue";
-</script>
-
 <template>
-  <v-app>
+  <v-app class="bg-grey-lighten-4">
     <AppBar />
-    <NuxtPage />
+    <v-main>
+      <NuxtPage />
+    </v-main>
   </v-app>
 </template>
