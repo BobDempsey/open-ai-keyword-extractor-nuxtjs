@@ -1,5 +1,10 @@
+<script setup>
+import AppBar from "./components/AppBar.vue";
+</script>
+
 <template>
-  <div>
-    <NuxtWelcome />
-  </div>
+  <v-app>
+    <AppBar />
+    <NuxtPage />
+  </v-app>
 </template>
