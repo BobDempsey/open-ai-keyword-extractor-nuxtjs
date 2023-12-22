@@ -2,10 +2,14 @@
   <v-container>
     <v-row>
       <v-col cols="12" md="8" offset-md="2">
-        <Hero />
-      </v-col>
-      <v-col cols="12" md="8" offset-md="2">
-        <Form />
+        <v-card
+          title="AI Keyword Extractor"
+          text="Paste in your text below and we'll automatically extract the keywords for you!"
+        >
+          <v-card-text>
+            <Form />
+          </v-card-text>
+        </v-card>
       </v-col>
     </v-row>
   </v-container>
