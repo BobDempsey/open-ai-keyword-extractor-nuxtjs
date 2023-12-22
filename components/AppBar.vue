@@ -20,6 +20,7 @@ const toggleTheme = () => {
 
 <template>
   <v-app-bar
+    density="comfortable"
     :elevation="0"
     color="primary"
     title="Open AI Keyword Extractor - Chat GPT"
