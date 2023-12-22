@@ -1,6 +1,11 @@
 <script setup>
 // vue => computed auto imported by nuxt
 
+// pinia => useAppStore() && storeToRefs() auto imported by nuxt
+// pinia appStore
+const appStore = useAppStore();
+const { loading, githubRepoUrl } = storeToRefs(appStore);
+
 // THEME
 import { useTheme } from "vuetify";
 const theme = useTheme();
@@ -14,10 +19,32 @@ const toggleTheme = () => {
 </script>
 
 <template>
-  <v-app-bar :elevation="0" color="primary" title="Open AI Keyword Extractor">
+  <v-app-bar
+    :elevation="0"
+    color="primary"
+    title="Open AI Keyword Extractor - Chat GPT"
+  >
     <v-toolbar-items>
-      <!-- toggle theme -->
-      <v-btn icon class="px-8" @click.stop="toggleTheme">
+      <!-- github repo btn -->
+      <v-btn
+        icon
+        class="px-8"
+        :loading="loading"
+        :disabled="loading"
+        :href="githubRepoUrl"
+        target="_blank"
+      >
+        <v-icon>mdi-github</v-icon>
+      </v-btn>
+
+      <!-- toggle theme btn -->
+      <v-btn
+        icon
+        class="px-8"
+        @click.stop="toggleTheme"
+        :loading="loading"
+        :disabled="loading"
+      >
         <v-icon v-if="isDark">mdi-lightbulb-off-outline</v-icon>
         <v-icon v-else>mdi-lightbulb-on-outline</v-icon>
       </v-btn>
