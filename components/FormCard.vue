@@ -21,7 +21,13 @@ const formRules = ref([
 </script>
 
 <template>
-  <v-card :title="appTitle" :loading="loading">
+  <v-card :loading="loading">
+    <!-- title and logo -->
+    <v-card-title class="d-flex align-items-center">
+      <img src="/openai_logo.png" class="mr-2" />
+      <div>{{ appTitle }}</div>
+    </v-card-title>
+
     <!-- app description text -->
     <v-card-text>
       <p class="mb-3 mt-1">
