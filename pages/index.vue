@@ -1,17 +1,24 @@
 <template>
   <v-container>
     <v-row>
-      <v-col cols="12" md="8" offset-md="2">
-        <v-card
-          title="AI Keyword Extractor"
-          text="Paste in your text below and we'll automatically extract the keywords for you!"
-        >
-          <v-card-text>
-            <!-- form -->
-            <Form />
-          </v-card-text>
-        </v-card>
+      <!-- form card -->
+      <v-col cols="12" md="10" offset-md="1" lg="8" offset-lg="2">
+        <FormCard />
+      </v-col>
+
+      <!-- about this app card -->
+      <v-col cols="12" md="10" offset-md="1" lg="8" offset-lg="2">
+        <AboutAppCard />
       </v-col>
     </v-row>
   </v-container>
+
+  <!-- results dialog -->
+  <ResultsDialog />
+
+  <!-- snackbar -->
+  <Snackbar />
+
+  <!-- footer -->
+  <Footer />
 </template>
