@@ -21,13 +21,7 @@ const formRules = ref([
 </script>
 
 <template>
-  <v-card :loading="loading">
-    <!-- title and logo -->
-    <v-card-title class="d-flex align-items-center">
-      <img src="/openai_logo.png" class="mr-2" />
-      <div>{{ appTitle }}</div>
-    </v-card-title>
-
+  <v-card :loading="loading" :title="appTitle">
     <!-- app description text -->
     <v-card-text>
       <p class="mb-3 mt-1">
@@ -68,7 +62,9 @@ const formRules = ref([
           :loading="loading"
           :disabled="loading"
           block
-          >Extract Keywords</v-btn
+        >
+          <v-icon start>mdi-robot-outline</v-icon>
+          Extract Keywords</v-btn
         >
       </v-form>
     </v-card-text>
