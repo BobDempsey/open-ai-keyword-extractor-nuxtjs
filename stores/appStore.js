@@ -13,7 +13,7 @@ export const useAppStore = defineStore("app", () => {
 
   // form submit handler to post to open ai api
   const onSubmit = async () => {
-    console.log("submit");
+    console.log("submit", process.env);
     loading.value = true;
     await new Promise((resolve) => setTimeout(resolve, 1000));
     loading.value = false;

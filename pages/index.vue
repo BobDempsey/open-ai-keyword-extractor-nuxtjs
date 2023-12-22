@@ -7,6 +7,7 @@
           text="Paste in your text below and we'll automatically extract the keywords for you!"
         >
           <v-card-text>
+            <!-- form -->
             <Form />
           </v-card-text>
         </v-card>
