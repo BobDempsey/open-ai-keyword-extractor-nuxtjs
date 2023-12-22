@@ -3,10 +3,28 @@
 
 // pinia appStore
 const appStore = useAppStore();
-const { showResultsDialog, results } = storeToRefs(appStore);
+const { showResultsDialog, results, resultsCopiedToClipboard } =
+  storeToRefs(appStore);
 
 // copyResultsToClipboard function cannot be destructured from app store
 const copyResultsToClipboard = appStore.copyResultsToClipboard;
+
+// btn ui color based on resultsCopiedToClipboard
+const btnColor = computed(() => {
+  return resultsCopiedToClipboard.value ? "success" : "primary";
+});
+
+// btn icon based on resultsCopiedToClipboard
+const btnIcon = computed(() => {
+  return resultsCopiedToClipboard.value ? "mdi-check" : "mdi-clipboard-outline";
+});
+
+// reset resultsCopiedToClipboard when dialog is closed
+watch(showResultsDialog, (newVal) => {
+  if (!newVal) {
+    resultsCopiedToClipboard.value = false;
+  }
+});
 </script>
 
 <template>
@@ -19,8 +37,9 @@ const copyResultsToClipboard = appStore.copyResultsToClipboard;
       <!-- actions -->
       <v-card-actions>
         <!-- copy to clipboard btn -->
-        <v-btn color="primary" @click="copyResultsToClipboard">
-          <v-icon start>mdi-clipboard-outline</v-icon>
+        <!-- ui updates depending on resultsCopiedToClipboard -->
+        <v-btn :color="btnColor" @click="copyResultsToClipboard">
+          <v-icon start>{{ btnIcon }}</v-icon>
           Copy to Clipboard</v-btn
         >
         <v-spacer />

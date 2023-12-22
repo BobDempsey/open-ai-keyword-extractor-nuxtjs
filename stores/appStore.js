@@ -29,6 +29,9 @@ export const useAppStore = defineStore("app", () => {
   // snackbar color
   const snackbarColor = ref("");
 
+  // results copied to clipboard
+  const resultsCopiedToClipboard = ref(false);
+
   // copy results to clipboard
   const copyResultsToClipboard = () => {
     try {
@@ -39,6 +42,9 @@ export const useAppStore = defineStore("app", () => {
       showSnackbar.value = true;
       snackbarColor.value = "success";
       snackbarMessage.value = "Keywords copied to clipboard!";
+
+      // results copied to clipboard
+      resultsCopiedToClipboard.value = true;
     } catch (error) {
       console.log("copyResultsToClipboard", error);
 
@@ -46,6 +52,9 @@ export const useAppStore = defineStore("app", () => {
       showSnackbar.value = true;
       snackbarColor.value = "error";
       snackbarMessage.value = "Error copying keywords to clipboard!";
+
+      // results not copied to clipboard
+      resultsCopiedToClipboard.value = true;
     }
   };
 
@@ -77,8 +86,11 @@ export const useAppStore = defineStore("app", () => {
       const statusMessage = toRaw(error?.value?.statusMessage);
 
       if (statusMessage !== undefined) {
-        // error toast here
         console.log("statusMessage", statusMessage);
+        // set error snackbar
+        showSnackbar.value = true;
+        snackbarColor.value = "error";
+        snackbarMessage.value = statusMessage;
         return;
       }
 
@@ -115,6 +127,7 @@ export const useAppStore = defineStore("app", () => {
     results,
     onSubmit,
     copyResultsToClipboard,
+    resultsCopiedToClipboard,
     showSnackbar,
     snackbarMessage,
     snackbarColor,
