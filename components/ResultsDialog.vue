@@ -25,14 +25,20 @@ watch(showResultsDialog, (newVal) => {
     resultsCopiedToClipboard.value = false;
   }
 });
+
+// format results to be more readable
+// removes dashes and periods
+const formattedResults = computed(() => {
+  return results.value.replaceAll("-", " ").replaceAll(".", " ");
+});
 </script>
 
 <template>
   <v-dialog v-model="showResultsDialog" width="500px">
     <v-card title="Open AI Keyword Results">
       <!-- open ai api results -->
-      <v-card-text>
-        {{ results }}
+      <v-card-text class="text-capitalize">
+        {{ formattedResults }}
       </v-card-text>
       <!-- actions -->
       <v-card-actions>
