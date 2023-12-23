@@ -21,6 +21,8 @@ const { loading, githubRepoUrl } = storeToRefs(appStore);
         extraction
       </p>
       <p class="mb-5">CI/CD and hosting on <strong>Vercel</strong></p>
+
+      <!-- openai code used to query api -->
       <v-alert>
         <p class="mb-2">
           <strong>OpenAI query used to extract keywords:</strong>
