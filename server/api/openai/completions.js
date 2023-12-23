@@ -13,7 +13,7 @@ const openai = new OpenAI({
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
-  const { content: text } = body;
+  const { content: text, temperature } = body;
 
   // const content =
   //   "Extract keywords from this text. Make the first letter of each word uppercase and separate with commas\n\n" +
@@ -30,7 +30,7 @@ export default defineEventHandler(async (event) => {
       max_tokens: 60,
       // the higher the temperature, the more creative the keywords will be (default is 1)
       // 0.5 is relatively conservative and good balance between creativity and relevance
-      temperature: 1,
+      temperature,
       // role is the entity that is speaking (user or agent)
       // content is the message that is being sent
       messages: [{ role: "user", content }],

@@ -32,6 +32,10 @@ export const useAppStore = defineStore("app", () => {
   // results copied to clipboard
   const resultsCopiedToClipboard = ref(false);
 
+  // openAI search temperature
+  // 1 is default, 0.5 is conservative, 2 is creative
+  const openAiChatTemperature = ref("1");
+
   // copy results to clipboard
   const copyResultsToClipboard = () => {
     try {
@@ -80,6 +84,8 @@ export const useAppStore = defineStore("app", () => {
         method: "POST",
         body: {
           content: text.value,
+          // openAiChatTemperature string converted into number
+          temperature: Number(openAiChatTemperature.value),
         },
       });
 
@@ -131,5 +137,6 @@ export const useAppStore = defineStore("app", () => {
     showSnackbar,
     snackbarMessage,
     snackbarColor,
+    openAiChatTemperature,
   };
 });

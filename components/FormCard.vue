@@ -33,13 +33,16 @@ const formRules = ref([
         <strong>blog posts, YouTube videos, school assignments,</strong>
         and more!
       </p>
-      <p class="text-subtitle mb-5">
+      <p class="text-subtitle mb-3">
         Paste in your text below and we'll automatically extract the keywords
         for you!
       </p>
 
       <!-- form to submit -->
       <v-form ref="form" :disabled="loading" @submit.prevent="onSubmit(form)">
+        <!-- mode selector (normal, creative, conservative) -->
+        <ModeSelector />
+
         <!-- textarea to enter text to extract keywords -->
         <v-textarea
           label="Enter text to extract keywords"
