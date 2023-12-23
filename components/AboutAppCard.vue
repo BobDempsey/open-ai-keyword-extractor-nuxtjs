@@ -20,7 +20,17 @@ const { loading, githubRepoUrl } = storeToRefs(appStore);
         <strong>OpenAI chat completions API (gpt-3.5-turbo)</strong> for keyword
         extraction
       </p>
-      <p>CI/CD and hosting on <strong>Vercel</strong></p>
+      <p class="mb-5">CI/CD and hosting on <strong>Vercel</strong></p>
+      <v-alert>
+        <p class="mb-2">
+          <strong>OpenAI query used to extract keywords:</strong>
+        </p>
+        <code>
+          const content = `Extract keywords for a blog post from this text:
+          ${text}. Separate each word with a comma. Remove trailing
+          commas.`;</code
+        >
+      </v-alert>
     </v-card-text>
     <!-- github repo btn -->
     <v-card-actions>
