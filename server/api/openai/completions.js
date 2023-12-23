@@ -15,10 +15,14 @@ export default defineEventHandler(async (event) => {
   const body = await readBody(event);
   const { content: text } = body;
 
-  const content =
-    "Extract keywords from this text. Make the first letter of each word uppercase and separate with commas\n\n" +
-    text +
-    "";
+  // const content =
+  //   "Extract keywords from this text. Make the first letter of each word uppercase and separate with commas\n\n" +
+  //   text +
+  //   "";
+
+  const content = `Extract keywords for a blog post from this text: ${text}. Separate each word with a comma. Remove trailing commas.`;
+
+  // Replace words like beautifully with beautiful. Replace hyphens in each word with a space. Separate each word with a comma.
 
   try {
     return await openai.chat.completions.create({
@@ -26,7 +30,7 @@ export default defineEventHandler(async (event) => {
       max_tokens: 60,
       // the higher the temperature, the more creative the keywords will be (default is 1)
       // 0.5 is relatively conservative and good balance between creativity and relevance
-      temperature: 0.5,
+      temperature: 1,
       // role is the entity that is speaking (user or agent)
       // content is the message that is being sent
       messages: [{ role: "user", content }],
