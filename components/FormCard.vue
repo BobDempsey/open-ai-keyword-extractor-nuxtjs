@@ -43,7 +43,7 @@ const formRules = ref([
         <!-- textarea to enter text to extract keywords -->
         <v-textarea
           label="Enter text to extract keywords"
-          v-model="text"
+          v-model.trim="text"
           :loading="loading"
           :disabled="loading"
           :rules="formRules"
