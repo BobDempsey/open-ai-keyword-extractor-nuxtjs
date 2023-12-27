@@ -1,6 +1,6 @@
 export const useAppStore = defineStore("app", () => {
   // app title
-  const appTitle = ref("Open AI Keyword Extractor - Chat GPT");
+  const appTitle = ref("Open AI Keyword Extractor - ChatGPT");
 
   // github repo url
   const githubRepoUrl = ref(

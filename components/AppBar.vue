@@ -4,7 +4,7 @@
 // pinia => useAppStore() && storeToRefs() auto imported by nuxt
 // pinia appStore
 const appStore = useAppStore();
-const { loading, githubRepoUrl } = storeToRefs(appStore);
+const { loading, githubRepoUrl, appTitle } = storeToRefs(appStore);
 
 // THEME
 import { useTheme } from "vuetify";
@@ -23,7 +23,7 @@ const toggleTheme = () => {
     density="comfortable"
     :elevation="0"
     color="primary"
-    title="Open AI Keyword Extractor - Chat GPT"
+    :title="appTitle"
   >
     <v-toolbar-items>
       <!-- github repo btn -->

@@ -26,7 +26,9 @@ const formRules = ref([
     <v-card-text>
       <p class="mb-3 mt-1">
         This application uses the
-        <strong>OpenAI API to extract keywords from your text.</strong>
+        <strong>OpenAI API</strong> to <strong>extract keywords</strong> from
+        your text using
+        <strong>ChatGPT.</strong>
       </p>
       <p class="mb-3">
         It's great for
