@@ -26,3 +26,4 @@ yarn dev
 - custom styling
 - e2e testing
 - firebase social logins/sign in as guest
+- convert to typescript
