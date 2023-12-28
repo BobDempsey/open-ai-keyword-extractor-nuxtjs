@@ -1,48 +1,28 @@
-# Nuxt Example
+# OpenAI ChatGPT Keyword Extractor
 
-Deploy your [Nuxt](https://nuxt.com) project to Vercel with zero configuration.
+This application uses the OpenAI API to extract keywords from your text using ChatGPT.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/vercel/tree/main/examples/nuxtjs&template=nuxtjs)
+It's great for blog posts, YouTube videos, school assignments, and more!
 
-_Live Example: https://nuxtjs-template.vercel.app_
+Paste in your text below and we'll automatically extract the keywords for you!
 
-Look at the [Nuxt 3 documentation](https://v3.nuxtjs.org) to learn more.
+---
+
+_Live Example: https://open-ai-keyword-extractor-nuxtjs.vercel.app/_
 
 ## Setup
 
-Make sure to install the dependencies:
+Install depencies and run locally on http://localhost:3000
 
 ```bash
 # yarn
 yarn
 
-# npm
-npm install
-
-# pnpm
-pnpm install --shamefully-hoist
+yarn dev
 ```
 
-## Development Server
+### TODO
 
-Start the development server on http://localhost:3000
-
-```bash
-npm run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Checkout the [deployment documentation](https://nuxt.com/docs/getting-started/deployment#presets) for more information.
+- custom styling
+- e2e testing
+- firebase social logins/sign in as guest
