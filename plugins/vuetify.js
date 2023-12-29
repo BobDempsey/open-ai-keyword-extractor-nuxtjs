@@ -1,10 +1,12 @@
 // import this after install `@mdi/font` package
 import "@mdi/font/css/materialdesignicons.css";
 
-import "vuetify/styles";
+// import "vuetify/styles";
+import "@/assets/scss/style.scss";
+
 import { createVuetify } from "vuetify";
 
-const myCustomLightTheme = {
+const lightTheme = {
   dark: false,
   variables: {
     "border-color": "#e5eaef",
@@ -37,7 +39,7 @@ const myCustomLightTheme = {
   },
 };
 
-const myCustomDarkTheme = {
+const darkTheme = {
   dark: true,
   variables: {
     "border-color": "#333F55",
@@ -73,36 +75,29 @@ const myCustomDarkTheme = {
 export default defineNuxtPlugin((app) => {
   const vuetify = createVuetify({
     theme: {
-      defaultTheme: "myCustomLightTheme",
+      defaultTheme: "dark",
       themes: {
-        myCustomLightTheme,
-        myCustomDarkTheme,
+        light: lightTheme,
+        dark: darkTheme,
       },
     },
     defaults: {
       VCard: {
-        rounded: "md",
+        rounded: "lg",
       },
-      VTextField: {
-        variant: "outlined",
-        density: "comfortable",
+      VCardActions: {
+        VBtn: {
+          rounded: false,
+        },
+      },
+      VBtn: {
         color: "primary",
+        variant: "flat",
+        rounded: true,
       },
       VTextarea: {
-        variant: "outlined",
-        density: "comfortable",
-        color: "primary",
-      },
-      VSelect: {
-        variant: "outlined",
-        density: "comfortable",
-        color: "primary",
-      },
-      VListItem: {
-        minHeight: "45px",
-      },
-      VTooltip: {
-        location: "top",
+        clearable: true,
+        counter: true,
       },
     },
   });

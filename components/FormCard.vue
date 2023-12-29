@@ -1,4 +1,11 @@
 <script setup>
+// computed and ref auto imported by nuxt
+
+// vuetify theme
+import { useTheme } from "vuetify";
+const theme = useTheme();
+const isDarkTheme = computed(() => theme.global.current.value.dark);
+
 // pinia => useAppStore() && storeToRefs() auto imported by nuxt
 
 // pinia appStore
@@ -21,7 +28,11 @@ const formRules = ref([
 </script>
 
 <template>
-  <v-card :loading="loading" :title="appTitle">
+  <v-card
+    :loading="loading"
+    :title="appTitle"
+    :variant="isDarkTheme ? 'tonal' : 'elevated'"
+  >
     <!-- app description text -->
     <v-card-text>
       <p class="mb-3 mt-1">
@@ -53,21 +64,13 @@ const formRules = ref([
           :disabled="loading"
           :rules="formRules"
           maxlength="1000"
-          counter
-          clearable
           hint="Max 1000 characters"
           class="mb-2"
         />
 
         <!-- submit btn -->
-        <v-btn
-          type="submit"
-          color="primary"
-          flat
-          :loading="loading"
-          :disabled="loading"
-          block
-        >
+        <!-- color="primary" -->
+        <v-btn type="submit" :loading="loading" :disabled="loading" block>
           <v-icon start>mdi-robot-outline</v-icon>
           Extract Keywords</v-btn
         >
